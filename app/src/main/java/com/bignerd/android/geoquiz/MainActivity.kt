@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         val message =
             if( userAction == correctAnswer){
             counter++
-                if(loopVar == 5){
+                if(loopVar == questionBank.size- 1){
                     val x = counter.toDouble()/loopVar
                     counter = 0
                     loopVar = 0
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 else resources.getString( R.string.correct_toast)
 
         } else {
-                if(loopVar == 5){
+                if(loopVar == questionBank.size- 1){
                     val x = counter.toDouble()/loopVar
                     counter = 0
                     loopVar = 0
