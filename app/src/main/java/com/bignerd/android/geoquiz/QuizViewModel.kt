@@ -1,5 +1,6 @@
 package com.bignerd.android.geoquiz
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
@@ -26,7 +27,8 @@ class QuizViewModel(private val savedInstanceHandle:
     val currentQuestionText:Int
     get()=questionBank[currentIndex].textResId
     fun moveToNext(){
-        currentIndex = (currentIndex+1) % questionBank.size
+  //  Log.d(TAG,"Updating question text",Exception())
+       currentIndex = (currentIndex+1) % questionBank.size
     }
     fun moveToPrev(){
         currentIndex = if ( currentIndex == 0 ) questionBank.size -1 else
