@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var trueButton:Button
     private lateinit var falseButton:Button
     private var once = false
-    private var counter = 0
-    private var loopVar = 0
+//    private var counter = 0
+//    private var loopVar = 0
     private lateinit var binding: ActivityMainBinding
     private var questionBank = listOf(
         Question(R.string.question_australia,true),
@@ -82,28 +82,30 @@ class MainActivity : AppCompatActivity() {
         once = false
     }
     private fun checkAnswer(userAction:Boolean){
-        loopVar++
+        //loopVar++
         val correctAnswer = questionBank[currentIndex].answer
         val message =
             if( userAction == correctAnswer){
-            counter++
-                if(loopVar == questionBank.size- 1){
+            /*counter++
+                if(loopVar == questionBank.size){
                     val x = counter.toDouble()/loopVar
                     counter = 0
                     loopVar = 0
                     "${x*100} percent correct"
                 }
-                else resources.getString( R.string.correct_toast)
+                else*/
+                resources.getString( R.string.correct_toast)
 
         } else {
-                if(loopVar == questionBank.size- 1){
+                /*if(loopVar == questionBank.size){
                     val x = counter.toDouble()/loopVar
                     counter = 0
                     loopVar = 0
                     "${x*100} percent correct"
 
                 }
-            else resources.getString( R.string.incorrect_toast)
+            else */
+            resources.getString( R.string.incorrect_toast)
         }
 
 
