@@ -1,10 +1,17 @@
 package com.bignerd.android.geoquiz
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
 private const val  TAG = "QuizViewModel"
-class QuizViewModel:ViewModel() {
-
+const val CURRENT_INDEX_KEY =  "CURRENT_INDEX_KEY"
+class QuizViewModel(private val savedInstanceHandle:
+                    SavedStateHandle):ViewModel() {
+    private var currentIndex:Int //questionBank.size -1
+    get() = savedInstanceHandle[CURRENT_INDEX_KEY] ?: 0
+    set(value) {
+        savedInstanceHandle[CURRENT_INDEX_KEY] = value
+    }
      private var questionBank = listOf(
         Question(R.string.question_australia,true),
         Question(R.string.question_oceans,true),
@@ -13,7 +20,6 @@ class QuizViewModel:ViewModel() {
         Question(R.string.question_americas,true),
         Question(R.string.question_asia,true),
     )
-     private var currentIndex = 0//questionBank.size -1
 
     val answerOfCurrentQuestion:Boolean
     get()= questionBank[currentIndex].answer
